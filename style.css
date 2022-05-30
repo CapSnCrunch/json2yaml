@@ -1,0 +1,98 @@
+@font-face {
+    font-family: promptBold;
+    src: url('fonts/Prompt-Bold.ttf');
+}
+
+@font-face {
+    font-family: promptSemiBold;
+    src: url('fonts/Prompt-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: promptLight;
+    src: url('fonts/Prompt-Light.ttf');
+}
+
+/* Synthwave color theme: 180133 740A67 FF2975 FF901F FFD319 */
+/* https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/ */
+
+html {
+    background-color: #192225;
+    height: 100%;
+}@font-face {
+    font-family: promptBold;
+    src: url('fonts/Prompt-Bold.ttf');
+}
+
+@font-face {
+    font-family: promptSemiBold;
+    src: url('fonts/Prompt-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: promptLight;
+    src: url('fonts/Prompt-Light.ttf');
+}
+
+/* Synthwave color theme: 180133 740A67 FF2975 FF901F FFD319 */
+/* https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/ */
+
+html, body {
+    margin: 0;
+    background-color: #192225;
+    height: 100%;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100%;
+}
+
+.intro-content {
+    flex-basis: 25%;
+    height: 100%;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.intro-content h1 {
+    color: #E84A5F;
+    font-family: promptBold;
+}
+
+.intro-content h2 {
+    color: #FECEAB;
+    font-size: medium;
+    font-family: promptLight;
+}
+
+.code-wrapper {
+    flex-basis: 37.5%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 1rem 1rem 1rem 0rem;
+}
+
+.code-wrapper h2 {
+    color: #FECEAB;
+    font-size: large;
+    font-family: promptSemiBold;
+}
+
+.code-content {
+    border-top: 2px solid white;
+    width: 100%;
+    height: 100%;
+    background-color: #28383d;
+
+    resize: none;
+    outline-width: 0;
+    box-sizing: border-box;
+    padding: 1rem;
+
+    color: white;
+    font-size: medium;
+    font-family: promptLight;
+}
