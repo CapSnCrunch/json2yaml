@@ -16,30 +16,14 @@
 /* Synthwave color theme: 180133 740A67 FF2975 FF901F FFD319 */
 /* https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/ */
 
-html {
-    background-color: #192225;
-    height: 100%;
-}@font-face {
-    font-family: promptBold;
-    src: url('fonts/Prompt-Bold.ttf');
-}
-
-@font-face {
-    font-family: promptSemiBold;
-    src: url('fonts/Prompt-SemiBold.ttf');
-}
-
-@font-face {
+.CodeMirror {
     font-family: promptLight;
-    src: url('fonts/Prompt-Light.ttf');
+    font-size: 16px;
 }
-
-/* Synthwave color theme: 180133 740A67 FF2975 FF901F FFD319 */
-/* https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/ */
 
 html, body {
     margin: 0;
-    background-color: #192225;
+    background-color: #201f1f;
     height: 100%;
 }
 
@@ -92,7 +76,7 @@ html, body {
     box-sizing: border-box;
     padding: 1rem;
 
-    color: white;
+    /* color: white; */
     font-size: medium;
     font-family: promptLight;
 }
