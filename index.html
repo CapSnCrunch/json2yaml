@@ -4,12 +4,14 @@
         <meta charset = 'utf-8'>
         <title>JSON to YAML</title>
         <link rel = 'preconnect' href = 'https://fonts.gstatic.com'>
+        <script src = 'https://kit.fontawesome.com/a2275cde5f.js' crossorigin = 'anonymous'></script>
         <link href = 'https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap' rel = 'stylesheet'>
         <link rel = 'stylesheet' href = './style.css'>
         <script type='text/javascript' src = 'codemirror/lib/codemirror.js'></script>
         <link rel = 'stylesheet' href = 'codemirror/lib/codemirror.css'>
         <link rel = 'stylesheet' href = 'http://codemirror.net/theme/railscasts.css'>
         <script src = 'codemirror/mode/yaml/yaml.js'></script>
+        <script src = 'js/copy.js'></script>
     </head>
     <body>
         <div class = 'page-wrapper'>
@@ -18,7 +20,10 @@
                 <h2>Free real-time conversion between JSON, YAML, and other file types</h2>
             </div>
             <div class = 'code-wrapper'>
-                <h2>JSON</h2>
+                <div class = 'code-header'>
+                    <h2>JSON</h2>
+                    <button class = 'fa-solid fa-clipboard' onClick = 'copyText("editor-1")'></button>
+                </div>
                 <textarea class = 'code-content' id = 'editor-1'>
 {
   "json": [
@@ -60,7 +65,10 @@
 }</textarea>
             </div>
             <div class = 'code-wrapper' style = 'padding-right: 2rem;'>
-                <h2>YAML</h2>
+                <div class = 'code-header'>
+                    <h2>YAML</h2>
+                    <button class = 'fa-solid fa-clipboard' onClick = 'copyText("editor-2")'></button>
+                </div>
                 <textarea class = 'code-content' id = 'editor-2'>
 ---
 # <- yaml supports comments, json does not

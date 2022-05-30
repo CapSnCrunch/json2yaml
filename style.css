@@ -20,6 +20,7 @@
     font-family: promptLight;
     font-size: 16px;
     line-height: 20px;
+    border-top: 2px solid white;
 }
 
 html, body {
@@ -64,6 +65,27 @@ html, body {
     color: #FECEAB;
     font-size: large;
     font-family: promptSemiBold;
+}
+
+.code-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.code-header button {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    font-size: 16px;
+    color: white;
+    background-color:#E84A5F;
+    border: none;
+    border-radius: 5px;
+}
+
+.code-header button:hover {
+    cursor: pointer;
 }
 
 .code-content {
