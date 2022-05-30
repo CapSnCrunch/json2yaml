@@ -9,15 +9,15 @@
 }
 
 @font-face {
-    font-family: promptLight;
-    src: url('fonts/Prompt-Light.ttf');
+    font-family: promptRegular;
+    src: url('fonts/Prompt-Regular.ttf');
 }
 
 /* Synthwave color theme: 180133 740A67 FF2975 FF901F FFD319 */
 /* https://digitalsynopsis.com/design/minimal-web-color-palettes-combination-hex-code/ */
 
 .CodeMirror {
-    font-family: promptLight;
+    font-family: promptRegular;
     font-size: 16px;
     line-height: 20px;
     border-top: 2px solid white;
@@ -38,19 +38,44 @@ html, body {
 
 .intro-content {
     flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
 }
 
 .intro-content h1 {
     color: #E84A5F;
+    font-size: 32px;
     font-family: promptBold;
+    margin: 0.5rem auto 0rem auto;
 }
 
 .intro-content h2 {
     color: #FECEAB;
-    font-size: medium;
-    font-family: promptLight;
+    font-size: 18px;
+    font-family: promptRegular;
+    margin: 0rem auto 0rem auto;
+}
+
+.intro-content h3 {
+    color: #E84A5F;
+    font-size: 20px;
+    font-family: promptRegular;
+    margin: 1rem 0rem 0rem 1rem;
+}
+
+.intro-content h4 {
+    color: #FECEAB;
+    font-size: 16px;
+    font-family: promptRegular;
+    margin: 0.5rem 0rem 0rem 2rem;
+}
+
+.intro-content a {
+    color: white;
+    font-size: 16px;
+    font-family: promptRegular;
 }
 
 .code-wrapper {
@@ -76,7 +101,7 @@ html, body {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 1rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     font-size: 16px;
     color: white;
     background-color:#E84A5F;
@@ -101,5 +126,5 @@ html, body {
 
     /* color: white; */
     font-size: medium;
-    font-family: promptLight;
+    font-family: promptRegular;
 }
