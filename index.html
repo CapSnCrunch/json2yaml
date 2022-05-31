@@ -11,8 +11,7 @@
         <link rel = 'stylesheet' href = 'codemirror/lib/codemirror.css'>
         <link rel = 'stylesheet' href = 'http://codemirror.net/theme/railscasts.css'>
         <script src = 'codemirror/mode/yaml/yaml.js'></script>
-        <script src = 'js/copy.js'></script>
-        <script src = 'js/json2yaml.js'></script>
+        <script src = 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js'></script>
     </head>
     <body>
         <div class = 'page-wrapper'>
@@ -127,7 +126,6 @@ alias_reuse:
                 lineWrapping: true
             });
             editor1.setSize(width = '100%', height = '100%')
-            editor1.on('change', (cm, change) => {json2yaml(cm)})
             document.getElementById('copy-1').onclick = () => {
                 navigator.clipboard.writeText(editor1.getValue());
             }
@@ -138,6 +136,11 @@ alias_reuse:
                 lineWrapping: true
             });
             editor2.setSize(width = '100%', height = '100%')
+            editor2.on('change', (cm, change) => {
+                // console.log(cm.getValue())
+                var doc = jsyaml.load(cm.getValue())
+                editor1.setValue(JSON.stringify(doc, null, 2))
+            })
             document.getElementById('copy-2').onclick = () => {
                 navigator.clipboard.writeText(editor2.getValue());
             }
