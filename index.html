@@ -12,6 +12,7 @@
         <link rel = 'stylesheet' href = 'http://codemirror.net/theme/railscasts.css'>
         <script src = 'codemirror/mode/yaml/yaml.js'></script>
         <script src = 'js/copy.js'></script>
+        <script src = 'js/json2yaml.js'></script>
     </head>
     <body>
         <div class = 'page-wrapper'>
@@ -37,7 +38,7 @@
             <div class = 'code-wrapper'>
                 <div class = 'code-header'>
                     <h2>JSON</h2>
-                    <button class = 'fa-solid fa-clipboard' onClick = 'copyText("editor-1")'></button>
+                    <button class = 'fa-solid fa-clipboard' id = 'copy-1'></button>
                 </div>
                 <textarea class = 'code-content' id = 'editor-1'>
 {
@@ -82,7 +83,7 @@
             <div class = 'code-wrapper' style = 'padding-right: 2rem;'>
                 <div class = 'code-header'>
                     <h2>YAML</h2>
-                    <button class = 'fa-solid fa-clipboard' onClick = 'copyText("editor-2")'></button>
+                    <button class = 'fa-solid fa-clipboard' id = 'copy-2'></button>
                 </div>
                 <textarea class = 'code-content' id = 'editor-2'>
 ---
@@ -126,6 +127,10 @@ alias_reuse:
                 lineWrapping: true
             });
             editor1.setSize(width = '100%', height = '100%')
+            editor1.on('change', (cm, change) => {json2yaml(cm)})
+            document.getElementById('copy-1').onclick = () => {
+                navigator.clipboard.writeText(editor1.getValue());
+            }
 
             var editor2 = CodeMirror.fromTextArea(document.getElementById('editor-2'), {
                 theme: 'railscasts',
@@ -133,6 +138,9 @@ alias_reuse:
                 lineWrapping: true
             });
             editor2.setSize(width = '100%', height = '100%')
+            document.getElementById('copy-2').onclick = () => {
+                navigator.clipboard.writeText(editor2.getValue());
+            }
         </script>
     </body>
 </html>
