@@ -92,6 +92,13 @@ html, body {
     font-family: promptSemiBold;
 }
 
+.code-wrapper h3 {
+    color: #E84A5F;
+    font-size: 12px;
+    font-family: promptSemiBold;
+    margin: auto 0rem auto 1rem;
+}
+
 .code-header {
     display: flex;
     flex-direction: row;
