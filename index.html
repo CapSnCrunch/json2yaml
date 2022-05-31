@@ -120,6 +120,7 @@ alias_reuse:
             </div>
         </div>
         <script>
+            var justEdited = false
             var editor1 = CodeMirror.fromTextArea(document.getElementById('editor-1'), {
                 theme: 'railscasts',
                 lineNumbers: true,
@@ -127,9 +128,11 @@ alias_reuse:
             });
             editor1.setSize(width = '100%', height = '100%')
             editor1.on('change', (cm, change) => {
-                // console.log(cm.getValue())
-                var doc = jsyaml.dump(cm.getValue())
-                editor2.setValue(doc)
+                if (!justEdited){
+                    var doc = jsyaml.dump(JSON.parse(cm.getValue()))
+                    editor2.setValue(doc)
+                }
+                justEdited = !justEdited
             })
             document.getElementById('copy-1').onclick = () => {
                 navigator.clipboard.writeText(editor1.getValue());
@@ -141,11 +144,14 @@ alias_reuse:
                 lineWrapping: true
             });
             editor2.setSize(width = '100%', height = '100%')
-            // editor2.on('change', (cm, change) => {
-            //     // console.log(cm.getValue())
-            //     var doc = jsyaml.load(cm.getValue())
-            //     editor1.setValue(JSON.stringify(doc, null, 2))
-            // })
+            editor2.on('change', (cm, change) => {
+                // console.log(cm.getValue())
+                if (!justEdited){
+                    var doc = jsyaml.load(cm.getValue())
+                    editor1.setValue(JSON.stringify(doc, null, 2))
+                }
+                justEdited = !justEdited
+            })
             document.getElementById('copy-2').onclick = () => {
                 navigator.clipboard.writeText(editor2.getValue());
             }
