@@ -127,6 +127,11 @@ html, body {
     cursor: pointer;
 }
 
+.code-header button:disabled {
+    background-color:#a38c8f;
+    cursor: default;
+}
+
 .code-content {
     border-top: 2px solid white;
     width: 100%;

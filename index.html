@@ -46,7 +46,7 @@
                 <div class = 'code-header'>
                     <h2>JSON</h2>
                     <button class = 'fa-solid fa-clipboard' id = 'copy-1'></button>
-                    <h3 id = 'json-error'></h3>
+                    <h3 id = 'json-message'></h3>
                 </div>
                 <textarea class = 'code-content' id = 'editor-1'>
 {
@@ -92,7 +92,7 @@
                 <div class = 'code-header'>
                     <h2>YAML</h2>
                     <button class = 'fa-solid fa-clipboard' id = 'copy-2'></button>
-                    <h3 id = 'yaml-error'></h3>
+                    <h3 id = 'yaml-message'></h3>
                 </div>
                 <textarea class = 'code-content' id = 'editor-2'>
 ---
@@ -139,13 +139,18 @@ alias_reuse:
             });
             editor1.setSize(width = '100%', height = '100%')
             editor1.on('change', (cm, change) => {
-                document.getElementById('json-error').innerHTML = ''
+                document.getElementById('json-message').innerHTML = ''
                 if (!justEdited){
                     try {
                         var doc = jsyaml.dump(JSON.parse(cm.getValue()))
                         editor2.setValue(doc)
+                        document.getElementById('copy-1').disabled = false
+                        document.getElementById('copy-2').disabled = false
+                        document.getElementById('json-message').innerHTML = ''
                     } catch (error){
-                        document.getElementById('json-error').innerHTML = error.message
+                        document.getElementById('json-message').style.color = '#E84A5F';
+                        document.getElementById('json-message').innerHTML = error.message
+                        document.getElementById('copy-1').disabled = true
                         justEdited = !justEdited
                     }
                 }
@@ -154,6 +159,11 @@ alias_reuse:
             })
             document.getElementById('copy-1').onclick = () => {
                 navigator.clipboard.writeText(editor1.getValue());
+                document.getElementById('json-message').innerHTML = 'Copied!'
+                document.getElementById('json-message').style.color = '#FECEAB';
+                if (document.getElementById('copy-2').disabled == false){
+                    document.getElementById('yaml-message').innerHTML = ''
+                }
             }
 
             var editor2 = CodeMirror.fromTextArea(document.getElementById('editor-2'), {
@@ -163,14 +173,18 @@ alias_reuse:
             });
             editor2.setSize(width = '100%', height = '100%')
             editor2.on('change', (cm, change) => {
-                document.getElementById('yaml-error').innerHTML = ''
+                document.getElementById('yaml-message').innerHTML = ''
                 if (!justEdited){
                     try {
                         var doc = jsyaml.load(cm.getValue())
                         editor1.setValue(JSON.stringify(doc, null, 2))
-                        document.getElementById('yaml-error').innerHTML = ''
+                        document.getElementById('copy-1').disabled = false
+                        document.getElementById('copy-2').disabled = false
+                        document.getElementById('yaml-message').innerHTML = ''
                     } catch (error) {
-                        document.getElementById('yaml-error').innerHTML = error.message
+                        document.getElementById('yaml-message').style.color = '#E84A5F';
+                        document.getElementById('yaml-message').innerHTML = error.message
+                        document.getElementById('copy-2').disabled = true
                         justEdited = !justEdited
                     }
                 }
@@ -178,6 +192,11 @@ alias_reuse:
             })
             document.getElementById('copy-2').onclick = () => {
                 navigator.clipboard.writeText(editor2.getValue());
+                document.getElementById('yaml-message').innerHTML = 'Copied!';
+                document.getElementById('yaml-message').style.color = '#FECEAB';
+                if (document.getElementById('copy-1').disabled == false){
+                    document.getElementById('json-message').innerHTML = ''
+                }
             }
         </script>
     </body>
