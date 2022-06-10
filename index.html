@@ -9,7 +9,7 @@
         <link rel = 'stylesheet' href = './style.css'>
         <script type='text/javascript' src = 'codemirror/lib/codemirror.js'></script>
         <link rel = 'stylesheet' href = 'codemirror/lib/codemirror.css'>
-        <link rel = 'stylesheet' href = 'https://codemirror.net/theme/railscasts.css'>
+        <link rel = 'stylesheet' href = 'codemirror/theme/railscasts.css'>
         <script src = 'codemirror/mode/yaml/yaml.js'></script>
         <script src = 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js'></script>
     </head>
@@ -155,7 +155,7 @@ alias_reuse:
                     }
                 }
                 justEdited = !justEdited
-                console.log(justEdited)
+                // console.log(justEdited)
             })
             document.getElementById('copy-1').onclick = () => {
                 navigator.clipboard.writeText(editor1.getValue());
